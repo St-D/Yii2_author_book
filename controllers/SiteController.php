@@ -20,7 +20,7 @@ class SiteController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'only' => ['logout'],
                 'rules' => [
                     [
@@ -28,10 +28,16 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+//                        'controllers' => ,
+                        'actions' => ['login'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'logout' => ['post'],
                 ],
@@ -63,8 +69,9 @@ class SiteController extends Controller
     public function actionIndex()
     {
 //        return $this->render('index');
-        $quer = Author::findOne(1);
-        return $this->render('index', compact('quer'));
+//        $quer = Author::findOne(1);
+        $authors = Author::find()->with()->all();
+        return $this->render('index', compact('authors'));
     }
 
     /**
@@ -79,6 +86,7 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }

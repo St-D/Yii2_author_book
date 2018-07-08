@@ -53,4 +53,5 @@ class Book extends \yii\db\ActiveRecord
     {
         return $this -> hasOne(Author::class, ['id' => 'author_id']);
     }
+
 }

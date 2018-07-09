@@ -28,6 +28,7 @@ class Book extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['id'], 'integer'],
             [['author_id', 'title'], 'required'],
             [['author_id'], 'integer'],
             [['year_of_writing'], 'safe'],
@@ -52,6 +53,20 @@ class Book extends \yii\db\ActiveRecord
     public function getAuthor()
     {
         return $this -> hasOne(Author::class, ['id' => 'author_id']);
+    }
+
+    public function fields()
+    {
+        return [
+            'id',
+            'title',
+            'year_of_writing' => function ($model) {
+                return Yii::$app->formatter->asDate($model->year_of_writing, 'yyyy');
+            },
+            'author_id' => function ($model) {
+                return $model->author['author'];
+            }
+        ];
     }
 
 }

@@ -16,6 +16,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'r2DJjIvmoKRmu3J5H6UZ01IfFNrjk1sl',
+            'enableCsrfValidation' => false,
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ],
@@ -47,19 +48,33 @@ $config = [
             ],
         ],
         'db' => $db,
-//        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
-//            'enableStrictParsing' => true,
-            'showScriptName' => false,
+//            'enableStrictParsing' => true, // с ним не работает сам сайт,видимо,нужны ещё rules
+            'showScriptName' => true,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'api\v1\books'],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'api',
+                    'only' => ['get', 'post', 'delete'],
+                    'pluralize' => true, // leading to the plural
+                ],
+                    'GET api/v1/books/list' => 'api',
+                    'GET api/v1/books/<id>' => 'api/view',
+                    'POST /api/v1/books/update/<id>' => 'api/update',
+                    'DELETE api/v1/books/<id>' => 'api/delete'
+//                    'extraPatterns' => [
+//                        'DELETE {id}/preferred_url' => 'del-id', // 'xxxxx' refers to 'actionXxxxx'
+//                        '<controller>/<action>' => '<controller>/<action>',
+//                    ],
+
             ],
         ],
-//        */
     ],
     'params' => $params,
 ];
+
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment

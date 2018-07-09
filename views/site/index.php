@@ -33,20 +33,20 @@ $this->title = 'My Yii Application';
     }
     ?>
 
-    <?php
-    // `identity` текущего пользователя. `Null`, если пользователь не аутентифицирован.
-    $identity = Yii::$app->user->identity;
-
-    // ID текущего пользователя. `Null`, если пользователь не аутентифицирован.
-    $id = Yii::$app->user->id;
-
-    // проверка на то, что текущий пользователь гость (не аутентифицирован)
-    $isGuest = Yii::$app->user->isGuest;
-
-    foreach ($identity as $i){
-        echo $i.'<br>';
-    }
-    ?>
+<!--    --><?php
+//    // `identity` текущего пользователя. `Null`, если пользователь не аутентифицирован.
+//    $identity = Yii::$app->user->identity;
+//
+//    // ID текущего пользователя. `Null`, если пользователь не аутентифицирован.
+//    $id = Yii::$app->user->id;
+//
+//    // проверка на то, что текущий пользователь гость (не аутентифицирован)
+//    $isGuest = Yii::$app->user->isGuest;
+//
+//    foreach ($identity as $i){
+//        echo $i.'<br>';
+//    }
+//    ?>
 
 
 <!--    <div class="body-content">-->

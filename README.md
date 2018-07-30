@@ -45,15 +45,15 @@ TASK
 
 - create entity AUTHOR and BOOK;
 - create admin functional:
-	a. CRUID for AUTHOR and BOOK,
-	b. render list of book with name of the author,
-	c. render list of authors with the number of books; 
+	-	(a)CRUID for AUTHOR and BOOK,
+	-	(b)render list of book with name of the author,
+	-	(c)render list of authors with the number of books; 
 - implement a public part of the site with the display of authors and their books (simple list output on the page);
 - implement the results data in JSON format via a RESTFUL Protocol (other controller):
-	a. GET api/v1/books/list - getting a list of books with the author's name,
-	b. GET api/v1/books/<id> - getting book data by ID,
-	ñ. POST api/v1/books/update/<id> - update book data,
-	d. DELETE /api/v1/books/<id> - deleting a book entry from the database;	
+	-	(a)GET api/v1/books/list - getting a list of books with the author's name,
+	-	(b)GET api/v1/books/<id> - getting book data by ID,
+	-	(ñ)POST api/v1/books/update/<id> - update book data,
+	-	(d)DELETE /api/v1/books/<id> - deleting a book entry from the database;	
 
 
 INSTALLATION

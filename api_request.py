@@ -47,7 +47,7 @@ try:
     print('-----------к заданию 4b----------------------------\n')
     id = 2
 
-    api_url = SERVER_NAME + '/api/v1/books/2' + str(id)
+    api_url = SERVER_NAME + '/api/v1/books/' + str(id)
     res = requests.get(api_url)
 
     print('Status code: ', res.status_code)

@@ -43,17 +43,17 @@ The minimum requirement by this project template that your Web server supports P
 TASK
 ----
 
-- реализовать сущности АВТОРЫ и КНИГИ;
-- реализовать административную часть:
-	a. CRUID операции для АВТОРОВ и КНИГ,
-	b. вывести список книг с обязательным указанием имени автора в списке,
-	c. вывести список авторов с указанием кол-ва книг; 
-- реализовать публичную часть сайта с отображением авторов и их книг (простой вавод списка на странице);
-- реализовать выдачу данных в формате JSON по RESTFUL протоколу отдельным контроллером:
-	a. GET api/v1/books/list - получение списка книг с именем автора,
-	b. GET api/v1/books/<id> - получение данных книги по ID,
-	с. POST api/v1/books/update/<id> - обновление данных книги,
-	d. DELETE /api/v1/books/<id> - удаление записи книги из БД;	
+- create entity AUTHOR and BOOK;
+- create admin functional:
+	a. CRUID for AUTHOR and BOOK,
+	b. render list of book with name of the author,
+	c. render list of authors with the number of books; 
+- implement a public part of the site with the display of authors and their books (simple list output on the page);
+- implement the results data in JSON format via a RESTFUL Protocol (other controller):
+	a. GET api/v1/books/list - getting a list of books with the author's name,
+	b. GET api/v1/books/<id> - getting book data by ID,
+	с. POST api/v1/books/update/<id> - update book data,
+	d. DELETE /api/v1/books/<id> - deleting a book entry from the database;	
 
 
 INSTALLATION
